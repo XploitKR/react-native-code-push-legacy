@@ -41,13 +41,6 @@ async function bundleCodePush(
     );
     console.log('log: JS bundling complete');
 
-    await runHermesEmitBinaryCommand(
-      _jsBundleName,
-      OUTPUT_CONTENT_PATH,
-      SOURCEMAP_OUTPUT,
-    );
-    console.log('log: Hermes compilation complete');
-
     const { bundleFileName: codePushBundleFileName } = await makeCodePushBundle(OUTPUT_CONTENT_PATH, bundleDirectory);
     console.log(`log: CodePush bundle created (file path: ./${bundleDirectory}/${codePushBundleFileName})`);
 

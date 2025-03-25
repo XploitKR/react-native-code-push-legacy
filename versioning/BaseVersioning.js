@@ -47,7 +47,7 @@ class BaseVersioning {
    * @return {[ReleaseVersion, ReleaseInfo]}
    */
   findLatestRelease() {
-    const latestReleaseInfo = this.sortedEnabledReleaseHistory.at(0);
+    const latestReleaseInfo = this.sortedEnabledReleaseHistory[0];
 
     if (!latestReleaseInfo) {
       throw new Error("There is no latest release.");
@@ -113,7 +113,7 @@ class BaseVersioning {
     }
 
     const [latestReleaseVersion] = this.findLatestRelease();
-    const [binaryAppVersion] = this.sortedReleaseHistory.at(-1);
+    const [binaryAppVersion] = this.sortedReleaseHistory[this.sortedEnabledReleaseHistory.length - 1];
 
     return (
       runtimeVersion !== latestReleaseVersion &&
